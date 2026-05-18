@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Crispy Bites</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class ="head">
+        <h1><i>Crispy</i></h1><h2>bites</h2> <input id="search" type="text" placeholder="   Search for snacks...">
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <img id="home-icon" src="home.svg">
+            <div id="add-recipe">
+                <a href="upload.html">
+                    <img id="plus-icon" src="plus.svg">
+                </a>
+            </div>
+        </div>  
+        <div id="home-page">    
+            <div class="block">
+                <div class ="main">
+                    <h3 class="second-title">  Non veg</h3>
+                        <p id="no-results">
+                            No snacks found 🥲
+                        </p>
+                    <div class ="container-card" id="recipe-container">
+                    </div>
+                </div>
+                <div class ="vg-main">
+                    <h3 class="vg-second-title">Veg</h3>
+                        <p id="veg-no-results">
+                            No snacks found 🥲
+                        </p>
+                    <div class ="container-card" id="veg-container">  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popup">
+        <div id="popup-content">
+            <span id="close-btn">&times;</span>
+            <img id="popup-image">
+            <h2 id="popup-title"></h2>
+             <div id="pop-box">
+                <p id="popup-ingredients"></p>
+                <p id="popup-steps"></p>
+                <p id="popup-chef"></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
