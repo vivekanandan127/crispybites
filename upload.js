@@ -1,3 +1,7 @@
+import {
+  auth,
+  onAuthStateChanged
+} from "./firebase.js";                             
 window.addEventListener("DOMContentLoaded", function(){
 
 
@@ -46,7 +50,9 @@ window.addEventListener("DOMContentLoaded", function(){
     // UPLOAD RECIPE
     uploadBtn.addEventListener("click",
     async function(){
-
+        const user =
+        auth.currentUser;
+        
         const name =
         document.getElementById("food-name").value;
 
@@ -75,6 +81,20 @@ window.addEventListener("DOMContentLoaded", function(){
         formData.append("ingredients", ingredients);
 
         formData.append("steps", steps);
+        formData.append(
+            "userId",
+            user.uid
+        );
+
+        formData.append(
+            "userName",
+            user.displayName
+        );
+
+        formData.append(
+            "userPhoto",
+            user.photoURL
+        );
 
         formData.append(
             "image",
@@ -100,5 +120,17 @@ window.addEventListener("DOMContentLoaded", function(){
         alert(data.message);
 
     });
+
+});
+onAuthStateChanged(auth, function(user){
+
+    if(!user){
+
+        alert("Login first 😭🔥");
+
+        window.location.href =
+        "index.html";
+
+    }
 
 });

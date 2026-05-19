@@ -1,3 +1,10 @@
+import {
+  auth,
+  provider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged
+} from "./firebase.js";
 console.log("NEW VERSION LOADED 🔥");
 window.addEventListener("DOMContentLoaded", function(){
 fetch("https://crispybites.onrender.com/recipes")
@@ -241,6 +248,87 @@ window.addEventListener("click", function(event){
     if(event.target === popup){
 
         popup.style.display = "none";
+
+    }
+
+});
+const loginBtn =
+document.getElementById("google-login");
+
+loginBtn.addEventListener(
+  "click",
+
+  async function(){
+
+    try{
+
+      const result =
+      await signInWithPopup(
+        auth,
+        provider
+      );
+
+      console.log(
+        "LOGIN SUCCESS 🔥",
+        result.user
+      );
+
+    }
+
+    catch(error){
+
+      console.log(error);
+
+    }
+
+});
+const logoutBtn =
+document.getElementById("logout-btn");
+
+logoutBtn.addEventListener(
+  "click",
+
+  async function(){
+
+    await signOut(auth);
+
+    console.log("LOGOUT");
+
+});onAuthStateChanged(auth, function(user){
+
+    if(user){
+
+        document
+        .getElementById("google-login")
+        .style.display = "none";
+
+
+        document
+        .getElementById("user-box")
+        .style.display = "flex";
+
+
+        document
+        .getElementById("user-name")
+        .textContent = user.displayName;
+
+
+        document
+        .getElementById("user-photo")
+        .src = user.photoURL;
+
+    }
+
+    else{
+
+        document
+        .getElementById("google-login")
+        .style.display = "block";
+
+
+        document
+        .getElementById("user-box")
+        .style.display = "none";
 
     }
 

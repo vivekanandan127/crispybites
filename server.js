@@ -87,6 +87,12 @@ async function(req, res) {
 
             steps: req.body.steps,
 
+            userId:req.body.userId,
+
+            userName:req.body.userName,
+
+            userPhoto:req.body.userPhoto,
+
             image: req.file.filename
 
         });

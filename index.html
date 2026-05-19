@@ -8,6 +8,25 @@
 <body>
     <div class ="head">
         <h1><i>Crispy</i></h1><h2>bites</h2> <input id="search" type="text" placeholder="   Search for snacks...">
+<div id="auth-section">
+
+    <button id="google-login">
+        Continue with Google
+    </button>
+
+    <div id="user-box">
+
+        <img id="user-photo">
+
+        <span id="user-name"></span>
+
+        <button id="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+</div>
     </div>
     <div class="container">
         <div class="sidebar">
@@ -15,6 +34,11 @@
             <div id="add-recipe">
                 <a href="upload.html">
                     <img id="plus-icon" src="plus.svg">
+                </a>
+            </div>
+            <div id="my-recipe">
+                <a href="myrecipes.html">
+                    <img id="recipe-icon" src="recipe.svg">
                 </a>
             </div>
         </div>  
@@ -51,6 +75,6 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

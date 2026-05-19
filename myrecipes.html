@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Crispy Bites</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class ="head">
+
+        <h1><i>Crispy</i></h1>
+
+        <h2>bites</h2>
+
+        <h3 class="upload-title">
+            My Recipe
+        </h3>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="sidebar">
+
+            <div id="homie">
+
+                <a href="index.html">
+
+                    <img
+                    id="home-icon"
+                    src="home.svg">
+
+                </a>
+
+            </div>
+
+
+            <div id="add-recipe">
+
+                <a href="upload.html">
+
+                    <img
+                    id="plus-icon"
+                    src="plus.svg">
+
+                </a>
+
+            </div>
+
+
+            <div id="my-recipe">
+
+                <a href="myrecipes.html">
+
+                    <img
+                    id="recipe-icon"
+                    src="recipe.svg">
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class ="profile-block">
+            <div class="profile-box">
+                <div id="profile-user-box">
+                    <img id="profile-user-photo">
+                    <div id="chef-name-box">
+                        <span id="profile-user-name"></span>
+                        <img id="chef-hat" src="chef.svg">
+                    </div>
+                </div>
+                <div class="recipe-count">
+                    <div id="nv-count-box">
+                        <h2 id="non-veg">
+                            Non Veg recipe
+                        </h2>
+                        <h3 id="n-count"></h3>
+                    </div>
+                    <div id="v-count-box">
+                        <h2 id="veg">
+                            Veg recipe
+                        </h2>
+                        <h3 id="v-count"></h3>
+                    </div>                    
+                </div>
+            </div>
+            <div class="switch-box">
+                <button
+                    id="nonveg-btn"
+                    class="active-switch">
+                    Non Veg
+                </button>
+                <button
+                    id="veg-btn">
+                    Veg
+                </button>
+            </div>
+        </div>
+        <div class ="container-card" id="recipe-container">
+        </div>
+    </div>
+
+
+    <script
+    type="module"
+    src="myrecipes.js">
+
+    </script>
+
+</body>
+
+</html>
