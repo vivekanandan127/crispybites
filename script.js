@@ -21,7 +21,7 @@ fetch("https://crispybites.onrender.com/recipes")
             <div class="card"onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')"
 >
 
-<img src="https://raw.githubusercontent.com/vivekanandan127/crispybites/main/uploads/${recipes.image}">
+<img src="https://crispybites.onrender.com/uploads/${recipes.image}" onerror="this.src='fallback.svg'">
                 
                 <div class="in-card">
 
@@ -46,7 +46,7 @@ fetch("https://crispybites.onrender.com/recipes")
 
             <div class="vg-card" onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')"
 >
-<img src="https://raw.githubusercontent.com/vivekanandan127/crispybites/main/uploads/${recipes.image}">
+<img src="https://crispybites.onrender.com/uploads/${recipes.image}" onerror="this.src='fallback.svg'">
 
                 <div class="vg-in-card">
 
@@ -171,7 +171,7 @@ function openPopup(
         .textContent = name;
 
 document.getElementById("popup-image").src =
-`https://raw.githubusercontent.com/vivekanandan127/crispybites/main/uploads/${image}`;
+`https://crispybites.onrender.com/uploads/${image}`;
 const ingredientList =
 ingredients
 
