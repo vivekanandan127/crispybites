@@ -1,32 +1,27 @@
-const Recipe =
-require("./models/Recipe");
+require("dotenv").config();
+
+const Recipe = require("./models/Recipe");
 
 require("./db");
 
-const express =
-require("express");
+const express = require("express");
+const multer = require("multer");
+const cors = require("cors");
+const path = require("path");
 
-const multer =
-require("multer");
-
-const cors =
-require("cors");
-
-const app =
-express();
+const app = express();
 
 
 // MULTER CONFIG
-const storage =
-multer.diskStorage({
+const storage = multer.diskStorage({
 
-    destination:function(req,file,cb){
+    destination: function(req, file, cb) {
 
-        cb(null,"uploads/");
+        cb(null, "uploads/");
 
     },
 
-    filename:function(req,file,cb){
+    filename: function(req, file, cb) {
 
         cb(
             null,
@@ -37,8 +32,7 @@ multer.diskStorage({
 
 });
 
-const upload =
-multer({ storage:storage });
+const upload = multer({ storage: storage });
 
 
 // MIDDLEWARE
@@ -48,16 +42,23 @@ app.use(express.json());
 
 app.use(
     "/uploads",
-    express.static("uploads")
+    express.static(path.join(__dirname, "uploads"))
 );
+
+
+// HOME ROUTE
+app.get("/", function(req, res) {
+
+    res.send("CrispyBites Backend Running 🔥");
+
+});
 
 
 // GET RECIPES
 app.get("/recipes",
-async function(req,res){
+async function(req, res) {
 
-    const recipes =
-    await Recipe.find();
+    const recipes = await Recipe.find();
 
     res.json(recipes);
 
@@ -69,24 +70,23 @@ app.post(
     "/recipes",
     upload.single("image"),
 
-async function(req,res){
+async function(req, res) {
 
-    try{
+    try {
 
-        const newRecipe =
-        new Recipe({
+        const newRecipe = new Recipe({
 
-            name:req.body.name,
+            name: req.body.name,
 
-            chef:req.body.chef,
+            chef: req.body.chef,
 
-            type:req.body.type,
+            type: req.body.type,
 
-            ingredients:req.body.ingredients,
+            ingredients: req.body.ingredients,
 
-            steps:req.body.steps,
+            steps: req.body.steps,
 
-            image:req.file.filename
+            image: req.file.filename
 
         });
 
@@ -94,19 +94,19 @@ async function(req,res){
 
         res.json({
 
-            message:"Recipe uploaded successfully"
+            message: "Recipe uploaded successfully"
 
         });
 
     }
 
-    catch(error){
+    catch(error) {
 
         console.log(error);
 
         res.status(500).json({
 
-            message:"Upload failed"
+            message: "Upload failed"
 
         });
 
@@ -116,8 +116,10 @@ async function(req,res){
 
 
 // SERVER
-app.listen(3000,function(){
+const PORT = process.env.PORT || 3000;
 
-    console.log("Server started");
+app.listen(PORT, function() {
+
+    console.log(`Server started on ${PORT} 🚀`);
 
 });
