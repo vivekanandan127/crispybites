@@ -123,4 +123,14 @@ app.listen(PORT, function() {
 
     console.log(`Server started on ${PORT} 🚀`);
 
+});app.get("/delete-all", async function(req, res){
+
+    await Recipe.deleteMany({});
+
+    res.json({
+
+        message:"All recipes deleted 🔥"
+
+    });
+
 });
