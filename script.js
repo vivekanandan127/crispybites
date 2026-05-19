@@ -21,8 +21,9 @@ fetch("https://crispybites.onrender.com/recipes")
             <div class="card"onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')"
 >
 
-                <img src="https://crispybites.onrender.com/uploads/${recipes.image}">
-
+                <img src="https://crispybites.onrender.com/uploads/${recipes.image}"
+                onerror="this.src='fallback.svg'"
+                loading="lazy">
                 <div class="in-card">
 
                     <h4 class="N-name">
@@ -47,7 +48,9 @@ fetch("https://crispybites.onrender.com/recipes")
             <div class="vg-card" onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')"
 >
 
-                <img src="https://crispybites.onrender.com/uploads/${recipes.image}">
+                <img src="https://crispybites.onrender.com/uploads/${recipes.image}"
+                onerror="this.src='fallback.svg'"
+                loading="lazy">
 
                 <div class="vg-in-card">
 
