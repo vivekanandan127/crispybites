@@ -9,7 +9,6 @@ window.addEventListener("DOMContentLoaded", function(){
 
     const imageInput =
     document.getElementById("image-input");
-
     const previewImage =
     document.getElementById("preview-image");
 
@@ -85,7 +84,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
         const response =
         await fetch(
-            "http://localhost:3000/recipes",
+            "https://crispybites.onrender.com/recipes",
             {
 
                 method:"POST",

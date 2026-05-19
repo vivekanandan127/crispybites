@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", function(){
-fetch("http://localhost:3000/recipes")
+fetch("https://crispybites.onrender.com/recipes")
 
 .then(response => response.json())
 
