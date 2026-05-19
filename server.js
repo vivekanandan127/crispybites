@@ -69,6 +69,7 @@ async function(req, res) {
 app.post(
     "/recipes",
     upload.single("image"),
+    console.log(req.file),
 
 async function(req, res) {
 
