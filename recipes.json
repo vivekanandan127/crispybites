@@ -1,0 +1,142 @@
+[
+  {
+    "_id": "6a098bde4740cc73fbb2b54f",
+    "name": "Chicken burger",
+    "type": "Non Veg",
+    "image": "1779010526952-burger.jpg",
+    "ingredients": "chicken, breadcrumbs, onion, garlic, cheese, lettuce, burger bun",
+    "steps": "mix chicken, shape patties, coat breadcrumbs, fry chicken, toast buns, add cheese, serve burger",
+    "chef": "Truett Cathy",
+    "__v": 0
+  },
+  {
+    "_id": "6a09946f4740cc73fbb2b550",
+    "name": "Spicy Fried Chicken",
+    "type": "Non Veg",
+    "image": "1779012719296-sp.jpg",
+    "ingredients": "chicken, chili powder, garlic paste, flour, egg, oil",
+    "steps": "marinate chicken, coat with flour, deep fry until crispy",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a09951f4740cc73fbb2b551",
+    "name": "Chicken Shawarma",
+    "type": "Non Veg",
+    "image": "1779012895118-sh.jpg",
+    "ingredients": "chicken, yogurt, garlic, pita bread, onion, mayo",
+    "steps": "marinate chicken, grill chicken, wrap in pita with sauce",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a0996324740cc73fbb2b552",
+    "name": "Paneer Burger",
+    "type": "Veg",
+    "image": "1779013170866-pb.jpg",
+    "ingredients": "paneer, breadcrumbs, onion, capsicum, cheese",
+    "steps": "mix paneer filling, shape patties, fry patty, assemble burger",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a0996954740cc73fbb2b553",
+    "name": "Veg Pizza",
+    "type": "Veg",
+    "image": "1779013269504-vp.jpg",
+    "ingredients": "pizza dough, cheese, tomato sauce, onion, capsicum, olives",
+    "steps": "spread sauce, add toppings, bake pizza until cheese melts",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a09970d4740cc73fbb2b554",
+    "name": "Crispy French Fries",
+    "type": "Veg",
+    "image": "1779013389197-ff.jpg",
+    "ingredients": "potato, salt, oil, pepper",
+    "steps": "cut potatoes, deep fry, season with salt and pepper",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a099bd44740cc73fbb2b555",
+    "name": "BBQ Chicken Pizza",
+    "type": "Non Veg",
+    "image": "1779014612608-bp.jpg",
+    "ingredients": "pizza dough, chicken, bbq sauce, cheese, onion, capsicum",
+    "steps": "spread sauce on dough, add chicken and toppings, bake until cheese melts",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a099c804740cc73fbb2b556",
+    "name": "Cheese Sandwich",
+    "type": "Veg",
+    "image": "1779014784734-cs.jpg",
+    "ingredients": "bread, cheese, butter, onion, tomato, pepper",
+    "steps": "apply butter on bread, add cheese and vegetables, grill until crispy",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a099f034740cc73fbb2b557",
+    "name": "Veg Roll",
+    "type": "Veg",
+    "image": "1779015427886-vr.jpg",
+    "ingredients": "chapati, cabbage, onion, sauce",
+    "steps": "cook vegetables, fill chapati, roll tightly, serve hot",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a09a1244740cc73fbb2b558",
+    "name": "Corn Cheese Balls",
+    "type": "Veg",
+    "image": "1779015972253-cb.jpg",
+    "ingredients": "corn, cheese, breadcrumbs, oil",
+    "steps": "mix ingredients, shape balls, fry balls, serve hot",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a09a2144740cc73fbb2b559",
+    "name": "Chicken Nuggets",
+    "type": "Non Veg",
+    "image": "1779016212164-cn.jpg",
+    "ingredients": "chicken, breadcrumbs, egg, oil",
+    "steps": "shape nuggets, coat nuggets, fry nuggets, serve hot",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a09a32c4740cc73fbb2b55a",
+    "name": "Egg Sandwich",
+    "type": "Non Veg",
+    "image": "1779016492780-es.jpg",
+    "ingredients": "bread, egg, butter, pepper",
+    "steps": "cook egg, toast bread, add filling, serve hot",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a09a3da4740cc73fbb2b55b",
+    "name": "Chicken Popcorn",
+    "type": "Non Veg",
+    "image": "1779016666470-cp.jpg",
+    "ingredients": "chicken, flour, pepper, oil",
+    "steps": "cut chicken, coat chicken, fry pieces, serve hot",
+    "chef": "vk king",
+    "__v": 0
+  },
+  {
+    "_id": "6a09a4c04740cc73fbb2b55c",
+    "name": "Mini Shawarma",
+    "type": "Non Veg",
+    "image": "1779016896582-ms.jpg",
+    "ingredients": "chicken, mayo, onion, roll",
+    "steps": "cook chicken, add sauce, roll wrap, serve hot",
+    "chef": "vk king",
+    "__v": 0
+  }
+]
