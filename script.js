@@ -170,12 +170,13 @@ function openPopup(
 
     document.getElementById("popup-title")
         .textContent = name;
-
+console.log("LATEST DEPLOY");
 document.getElementById("popup-image")
 .src =
 `https://crispybites.onrender.com/uploads/${image}`;
 const ingredientList =
 ingredients
+
 .split(",")
 .map(item => {
 
