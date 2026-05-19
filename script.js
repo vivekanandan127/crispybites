@@ -1,3 +1,4 @@
+console.log("NEW VERSION LOADED 🔥");
 window.addEventListener("DOMContentLoaded", function(){
 fetch("https://crispybites.onrender.com/recipes")
 
