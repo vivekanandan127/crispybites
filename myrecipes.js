@@ -1,3 +1,8 @@
+import {
+    auth,
+    onAuthStateChanged
+}
+from "./firebase.js";
 const nonvegBtn =
 document.getElementById(
     "nonveg-btn"
@@ -7,11 +12,6 @@ const vegBtn =
 document.getElementById(
     "veg-btn"
 );
-import {
-    auth,
-    onAuthStateChanged
-}
-from "./firebase.js";
 
 
 // CONTAINER
@@ -107,6 +107,20 @@ vegBtn.addEventListener(
         );
 
         renderRecipes("Veg");
+
+});
+const vegRecipes =
+myRecipes.filter(function(recipe){
+
+    return recipe.type === "Veg";
+
+});
+
+
+const nonVegRecipes =
+myRecipes.filter(function(recipe){
+
+    return recipe.type === "Non Veg";
 
 });
 
