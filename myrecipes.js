@@ -72,17 +72,7 @@ async function(user){
         );
 
     });
-    if(nonVegRecipes.length > 0){
 
-    renderRecipes("Non Veg");
-
-}
-
-else{
-
-    renderRecipes("Veg");
-
-}
  
 
 nonvegBtn.addEventListener(
@@ -133,6 +123,17 @@ myRecipes.filter(function(recipe){
     return recipe.type === "Non Veg";
 
 });
+    if(nonVegRecipes.length > 0){
+
+    renderRecipes("Non Veg");
+
+}
+
+else{
+
+    renderRecipes("Veg");
+
+}
 
     // UPDATE COUNTS
     document
