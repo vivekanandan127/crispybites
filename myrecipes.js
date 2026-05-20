@@ -72,7 +72,17 @@ async function(user){
         );
 
     });
+    if(nonVegRecipes.length > 0){
+
     renderRecipes("Non Veg");
+
+}
+
+else{
+
+    renderRecipes("Veg");
+
+}
  
 
 nonvegBtn.addEventListener(
@@ -205,34 +215,41 @@ myRecipes.filter(function(recipe){
         : "in-card";
 
 
-        recipeContainer.innerHTML +=
+        recipeContainer.innerHTML += `
 
-        `
-        <div class="${cardClass}">
+<div
+class="${cardClass}"
 
-            <img
-            src="https://crispybites.onrender.com/uploads/${recipe.image}">
+onclick='openPopup(
+"${recipe.name}",
+"${recipe.image}",
+"${recipe.ingredients}",
+"${recipe.steps}",
+"${recipe.chef}"
+)'
 
+>
 
-            <div class="${inCardClass}">
+<img
+src="https://crispybites.onrender.com/uploads/${recipe.image}"
 
-                <h4 class="N-name">
+onerror="this.src='fallback.svg'">
 
-                    ${recipe.name}
+<div class="${inCardClass}">
 
-                </h4>
+<h4 class="N-name">
+${recipe.name}
+</h4>
 
-                <p class="chef-name">
+<p class="chef-name">
+By ${recipe.chef}
+</p>
 
-                    By ${recipe.chef}
+</div>
 
-                </p>
+</div>
 
-            </div>
-
-        </div>
-        `;
-
+`;
     });
 
 }
