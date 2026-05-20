@@ -81,10 +81,7 @@ window.addEventListener("DOMContentLoaded", function(){
         formData.append("ingredients", ingredients);
 
         formData.append("steps", steps);
-        formData.append(
-            "userId",
-            user.uid
-        );
+        formData.append("userId", user.uid);
 
         formData.append(
             "userName",

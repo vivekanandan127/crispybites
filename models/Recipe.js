@@ -12,7 +12,13 @@ const recipeSchema = new mongoose.Schema({
 
     steps:String,
 
-    chef:String
+    chef:String,
+
+    userId:String,
+
+    userName:String,
+
+    userPhoto:String
 
 });
 

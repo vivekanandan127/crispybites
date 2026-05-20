@@ -69,7 +69,6 @@ async function(req, res) {
 app.post(
     "/recipes",
     upload.single("image"),
-    req.file = undefined,
 
 async function(req, res) {
 
