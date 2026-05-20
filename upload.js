@@ -83,10 +83,7 @@ window.addEventListener("DOMContentLoaded", function(){
         formData.append("steps", steps);
         formData.append("userId", user.uid);
 
-        formData.append(
-            "userName",
-            user.displayName
-        );
+        formData.append("userName", user.displayName);
 
         formData.append(
             "userPhoto",
