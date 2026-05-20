@@ -1,121 +1,14 @@
 import {
-  auth,
-  onAuthStateChanged
-} from "./firebase.js";                             
-window.addEventListener("DOMContentLoaded", function(){
+    auth,
+    onAuthStateChanged
+}
+from "./firebase.js";
 
 
-    const uploadBtn =
-    document.getElementById("upload-btn");
-
-    const imageBtn =
-    document.getElementById("image-upload-btn");
-
-    const imageInput =
-    document.getElementById("image-input");
-    const previewImage =
-    document.getElementById("preview-image");
+let currentUser = null;
 
 
-
-    // IMAGE PICKER
-    imageBtn.addEventListener("click", function(){
-
-        imageInput.click();
-
-    });
-
-
-
-    // IMAGE PREVIEW
-    imageInput.addEventListener("change", function(event){
-
-        const file =
-        event.target.files[0];
-
-        if(file){
-
-            const imageURL =
-            URL.createObjectURL(file);
-
-            previewImage.src =
-            imageURL;
-
-        }
-
-    });
-
-
-
-    // UPLOAD RECIPE
-    uploadBtn.addEventListener("click",
-    async function(){
-        const user =
-        auth.currentUser;
-        
-        const name =
-        document.getElementById("food-name").value;
-
-        const chef =
-        document.getElementById("chef-name").value;
-
-        const type =
-        document.getElementById("food-type").value;
-
-        const ingredients =
-        document.getElementById("ingredients").value;
-
-        const steps =
-        document.getElementById("steps").value;
-
-
-        const formData =
-        new FormData();
-
-        formData.append("name", name);
-
-        formData.append("chef", chef);
-
-        formData.append("type", type);
-
-        formData.append("ingredients", ingredients);
-
-        formData.append("steps", steps);
-        formData.append("userId", user.uid);
-
-        formData.append("userName", user.displayName);
-
-        formData.append(
-            "userPhoto",
-            user.photoURL
-        );
-
-        formData.append(
-            "image",
-            imageInput.files[0]
-        );
-
-
-        const response =
-        await fetch(
-            "https://crispybites.onrender.com/recipes",
-            {
-
-                method:"POST",
-
-                body:formData
-
-            }
-        );
-
-        const data =
-        await response.json();
-
-        alert(data.message);
-
-    });
-
-});
+// WAIT FOR AUTH
 onAuthStateChanged(auth, function(user){
 
     if(!user){
@@ -125,6 +18,248 @@ onAuthStateChanged(auth, function(user){
         window.location.href =
         "index.html";
 
+        return;
+
     }
+
+    currentUser = user;
+
+});
+
+
+
+window.addEventListener(
+"DOMContentLoaded",
+
+function(){
+
+    const uploadBtn =
+    document.getElementById(
+        "upload-btn"
+    );
+
+
+    const imageBtn =
+    document.getElementById(
+        "image-upload-btn"
+    );
+
+
+    const imageInput =
+    document.getElementById(
+        "image-input"
+    );
+
+
+    const previewImage =
+    document.getElementById(
+        "preview-image"
+    );
+
+
+
+    // IMAGE PICKER
+    imageBtn.addEventListener(
+
+        "click",
+
+        function(){
+
+            imageInput.click();
+
+    });
+
+
+
+    // IMAGE PREVIEW
+    imageInput.addEventListener(
+
+        "change",
+
+        function(event){
+
+            const file =
+            event.target.files[0];
+
+            if(file){
+
+                previewImage.src =
+                URL.createObjectURL(file);
+
+            }
+
+    });
+
+
+
+
+    // UPLOAD RECIPE
+    uploadBtn.addEventListener(
+
+        "click",
+
+        async function(){
+
+            try{
+
+
+                // USER CHECK
+                if(!currentUser){
+
+                    alert(
+                        "User not loaded 😭🔥"
+                    );
+
+                    return;
+
+                }
+
+
+
+                // IMAGE CHECK
+                if(!imageInput.files[0]){
+
+                    alert(
+                        "Select image first 😭🔥"
+                    );
+
+                    return;
+
+                }
+
+
+
+                // INPUT VALUES
+                const name =
+                document.getElementById(
+                    "food-name"
+                ).value;
+
+
+                const chef =
+                document.getElementById(
+                    "chef-name"
+                ).value;
+
+
+                const type =
+                document.getElementById(
+                    "food-type"
+                ).value;
+
+
+                const ingredients =
+                document.getElementById(
+                    "ingredients"
+                ).value;
+
+
+                const steps =
+                document.getElementById(
+                    "steps"
+                ).value;
+
+
+
+                // FORMDATA
+                const formData =
+                new FormData();
+
+
+                formData.append(
+                    "name",
+                    name
+                );
+
+                formData.append(
+                    "chef",
+                    chef
+                );
+
+                formData.append(
+                    "type",
+                    type
+                );
+
+                formData.append(
+                    "ingredients",
+                    ingredients
+                );
+
+                formData.append(
+                    "steps",
+                    steps
+                );
+
+
+
+                // OWNER DATA
+                formData.append(
+                    "userId",
+                    currentUser.uid
+                );
+
+                formData.append(
+                    "userName",
+                    currentUser.displayName
+                );
+
+                formData.append(
+                    "userPhoto",
+                    currentUser.photoURL
+                );
+
+
+
+                // IMAGE
+                formData.append(
+                    "image",
+                    imageInput.files[0]
+                );
+
+
+
+                // DEBUG
+                console.log(
+                    [...formData.entries()]
+                );
+
+
+
+                // FETCH
+                const response =
+                await fetch(
+
+                    "https://crispybites.onrender.com/recipes",
+
+                    {
+                        method:"POST",
+                        body:formData
+                    }
+
+                );
+
+
+
+                const data =
+                await response.json();
+
+                alert(data.message);
+
+
+
+            }
+
+            catch(error){
+
+                console.log(error);
+
+                alert(
+                    "Upload failed 😭🔥"
+                );
+
+            }
+
+    });
 
 });
