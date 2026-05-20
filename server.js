@@ -68,12 +68,12 @@ async function(req, res) {
 // POST RECIPE
 app.post(
     "/recipes",
-    upload.single("image"),
+    upload.single("image"), 
 
 async function(req, res) {
 
     try {
-
+        console.log(req.body);
         const newRecipe = new Recipe({
 
             name: req.body.name,
