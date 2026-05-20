@@ -12,6 +12,8 @@ const recipeSchema = new mongoose.Schema({
 
     steps:String,
 
+    eatingTime:String,
+
     chef:String,
 
     userId:String,

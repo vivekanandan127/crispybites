@@ -147,7 +147,10 @@ function(){
                     "food-type"
                 ).value;
 
-
+                const eatingTime =
+document.getElementById(
+    "eating-time"
+).value;
                 const ingredients =
                 document.getElementById(
                     "ingredients"
@@ -181,6 +184,10 @@ function(){
                     type
                 );
 
+                formData.append(
+    "eatingTime",
+    eatingTime
+);
                 formData.append(
                     "ingredients",
                     ingredients

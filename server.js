@@ -82,6 +82,8 @@ async function(req, res) {
 
             type: req.body.type,
 
+            eatingTime:req.body.eatingTime,
+
             ingredients: req.body.ingredients,
 
             steps: req.body.steps,
@@ -122,11 +124,14 @@ async function(req, res) {
 
 
 // SERVER
-const PORT = process.env.PORT || 3000;
+const PORT =
+process.env.PORT || 3000;
 
-app.listen(PORT, function() {
+app.listen(PORT, "0.0.0.0", function(){
 
-    console.log(`Server started on ${PORT} 🚀`);
+    console.log(
+        `Server started on ${PORT} 🚀`
+    );
 
 });app.get("/delete-all", async function(req, res){
 
