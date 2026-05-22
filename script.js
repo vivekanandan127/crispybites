@@ -25,51 +25,35 @@ fetch("https://crispybites.onrender.com/recipes")
 
             nonVegContainer.innerHTML += `
 
-            <div class="card"onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')"
->
-
-<img src="https://crispybites.onrender.com/uploads/${recipes.image}" onerror="this.src='fallback.svg'">
-                
+            <div class="card"onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')">    
+                <img src="https://crispybites.onrender.com/uploads/${recipes.image}" onerror="this.src='fallback.svg'">
                 <div class="in-card">
-
                     <h4 class="N-name">
                         ${recipes.name}
                     </h4>
                     <p class="chef-name">
                         By ${recipes.chef}
                     </p>
-
                 </div>
-
             </div>
-
             `;
-
         }
-
         else if(recipes.type === "Veg"){
 
             vegContainer.innerHTML += `
 
-            <div class="vg-card" onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')"
->
-<img src="https://crispybites.onrender.com/uploads/${recipes.image}" onerror="this.src='fallback.svg'">
-
+            <div class="vg-card" onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')">
+                <img src="https://crispybites.onrender.com/uploads/${recipes.image}" onerror="this.src='fallback.svg'">
                 <div class="vg-in-card">
-
                     <h4 class="N-name">
                         ${recipes.name}
                     </h4>
                     <p class="chef-name">
                         By ${recipes.chef}
                     </p>
-
                 </div>
-
             </div>
-
             `;
-
         }
 
     });
@@ -163,7 +147,7 @@ fetch("https://crispybites.onrender.com/recipes")
 
 });
 });
-function openPopup(
+window.openPopup = function(
     name,
     image,
     ingredients,
@@ -233,13 +217,22 @@ document.getElementById("popup-steps")
         .textContent =
         "Chef: " + chef;
 }
-document.getElementById("close-btn")
-.addEventListener("click", function(){
+const closeBtn =
+document.getElementById("close-btn");
 
-    document.getElementById("popup")
-        .style.display = "none";
+if(closeBtn){
 
-});
+    closeBtn.addEventListener(
+        "click",
+        function(){
+
+            document
+            .getElementById("popup")
+            .style.display = "none";
+
+    });
+
+}
 window.addEventListener("click", function(event){
 
     const popup =

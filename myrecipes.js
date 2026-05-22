@@ -13,11 +13,66 @@ document.getElementById(
     "veg-btn"
 );
 
+window.updateRecipe = async function(){
 
+    const updatedRecipe = {
+
+        name:
+        document.getElementById(
+            "edit-name"
+        ).value,
+
+        ingredients:
+        document.getElementById(
+            "edit-ingredients"
+        ).value,
+
+        steps:
+        document.getElementById(
+            "edit-steps"
+        ).value,
+
+        type:
+        document.getElementById(
+            "edit-type"
+        ).value
+
+    };
+
+    const response =
+    await fetch(
+
+        `https://crispybites.onrender.com/recipes/${currentEditId}`,
+
+        {
+
+            method:"PUT",
+
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
+
+            body:JSON.stringify(
+                updatedRecipe
+            )
+
+        }
+
+    );
+
+    const data =
+    await response.json();
+
+    alert(data.message);
+
+    location.reload();
+
+}
 // CONTAINER
 const recipeContainer =
 document.getElementById(
-    "recipe-container"
+    "my-recipe-container"
 );
 
 
@@ -64,14 +119,12 @@ async function(user){
 
 
     // FILTER USER RECIPES
-    const myRecipes =
-    recipes.filter(function(recipe){
+const myRecipes =
+recipes.filter(function(recipe){
 
-        return (
-            recipe.userId === user.uid
-        );
+    return recipe.userId === user.uid;
 
-    });
+});
 
  
 
@@ -123,17 +176,6 @@ myRecipes.filter(function(recipe){
     return recipe.type === "Non Veg";
 
 });
-    if(nonVegRecipes.length > 0){
-
-    renderRecipes("Non Veg");
-
-}
-
-else{
-
-    renderRecipes("Veg");
-
-}
 
     // UPDATE COUNTS
     document
@@ -172,86 +214,216 @@ else{
 
 
     // RENDER RECIPES
-    function renderRecipes(type){
+   renderRecipes("Non Veg");
+
+function renderRecipes(type){
 
     recipeContainer.innerHTML = "";
 
+    myRecipes.forEach(recipe => {
 
-    const filteredRecipes =
-    myRecipes.filter(function(recipe){
+        if(recipe.type === type){
 
-        return recipe.type === type;
+            const cardClass =
+            recipe.type === "Veg"
+            ? "vg-card"
+            : "card";
+
+            const inCardClass =
+            recipe.type === "Veg"
+            ? "vg-in-card"
+            : "in-card";
+
+            recipeContainer.innerHTML += `
+
+            <div class="${cardClass}"onclick="
+openPopup(
+'${recipe.name}',
+'${recipe.image}',
+'${recipe.ingredients}',
+'${recipe.steps}',
+'${recipe.chef}'
+)">
+
+                <img
+                src="https://crispybites.onrender.com/uploads/${recipe.image}"
+
+                onerror="this.src='fallback.svg'">
+
+                <div class="${inCardClass}">
+
+                    <h4 class="N-name">
+                        ${recipe.name}
+                    </h4>
+
+                    <p class="chef-name">
+                        By ${recipe.chef}
+                    </p>
+                       <div class="action-box">
+
+                            <img class="edit-icon"
+                                src="edit.svg"
+
+                                onclick="event.stopPropagation(); editRecipe(
+                                '${recipe._id}',
+                                '${recipe.name}',
+                                '${recipe.ingredients}',
+                                '${recipe.steps}',
+                                '${recipe.type}'
+                            )">
+
+                            <img
+                                class="delete-icon"
+                                src="delete.svg"
+
+                                onclick="event.stopPropagation(); deleteRecipe(
+                                '${recipe._id}'
+                            )">
+
+                        </div>
+
+                </div>
+
+            </div>
+
+            `;
+
+        }
 
     });
 
+}
+});
+window.openPopup = function(
 
-    if(filteredRecipes.length === 0){
+    name,
+    image,
+    ingredients,
+    steps,
+    chef
 
-        recipeContainer.innerHTML =
+){
 
-        `
-        <h2 style="color:white;">
+    document.getElementById(
+        "popup"
+    ).style.display = "flex";
 
-            No ${type} recipes 😭🔥
 
-        </h2>
-        `;
+    document.getElementById(
+        "popup-title"
+    ).textContent = name;
+
+
+    document.getElementById(
+        "popup-image"
+    ).src =
+
+    `https://crispybites.onrender.com/uploads/${image}`;
+
+
+    document.getElementById(
+        "popup-chef"
+    ).textContent =
+
+    `By ${chef}`;
+
+
+    document.getElementById(
+        "popup-ingredients"
+    ).textContent = ingredients;
+
+
+    document.getElementById(
+        "popup-steps"
+    ).textContent = steps;
+
+}
+window.closePopup = function(){
+
+    document.getElementById(
+        "popup"
+    ).style.display = "none";
+
+}
+
+window.deleteRecipe = async function(id){
+
+    const confirmDelete =
+    confirm(
+        "Delete this recipe? 😭"
+    );
+
+    if(!confirmDelete){
 
         return;
 
     }
 
+    try{
 
-    filteredRecipes.forEach(function(recipe){
+        const response =
+        await fetch(
 
-        const cardClass =
-        recipe.type === "Veg"
-        ? "vg-card"
-        : "card";
+            `https://crispybites.onrender.com/recipes/${id}`,
 
+            {
+                method:"DELETE"
+            }
 
-        const inCardClass =
-        recipe.type === "Veg"
-        ? "vg-in-card"
-        : "in-card";
+        );
 
+        const data =
+        await response.json();
 
-        recipeContainer.innerHTML += `
+        alert(data.message);
 
-<div
-class="${cardClass}"
+        location.reload();
 
-onclick='openPopup(
-"${recipe.name}",
-"${recipe.image}",
-"${recipe.ingredients}",
-"${recipe.steps}",
-"${recipe.chef}"
-)'
+    }
 
->
+    catch(error){
 
-<img
-src="https://crispybites.onrender.com/uploads/${recipe.image}"
+        console.log(error);
 
-onerror="this.src='fallback.svg'">
+        alert(
+            "Delete failed 😭🔥"
+        );
 
-<div class="${inCardClass}">
-
-<h4 class="N-name">
-${recipe.name}
-</h4>
-
-<p class="chef-name">
-By ${recipe.chef}
-</p>
-
-</div>
-
-</div>
-
-`;
-    });
+    }
 
 }
-});
+let currentEditId = "";
+
+window.editRecipe = function(
+
+    id,
+    name,
+    ingredients,
+    steps,
+    type
+
+){
+
+    currentEditId = id;
+
+    document
+    .getElementById("edit-popup")
+    .style.display = "flex";
+
+    document
+    .getElementById("edit-name")
+    .value = name;
+
+    document
+    .getElementById("edit-ingredients")
+    .value = ingredients;
+
+    document
+    .getElementById("edit-steps")
+    .value = steps;
+
+    document
+    .getElementById("edit-type")
+    .value = type;
+
+}

@@ -144,3 +144,87 @@ app.listen(PORT, "0.0.0.0", function(){
     });
 
 });
+app.delete(
+
+    "/recipes/:id",
+
+    async function(req, res){
+
+        try{
+
+            await Recipe.findByIdAndDelete(
+                req.params.id
+            );
+
+            res.json({
+
+                message:
+                "Recipe deleted 🔥"
+
+            });
+
+        }
+
+        catch(error){
+
+            console.log(error);
+
+            res.status(500).json({
+
+                message:
+                "Delete failed 😭"
+
+            });
+
+        }
+
+});
+app.put(
+
+    "/recipes/:id",
+
+    async function(req, res){
+
+        try{
+
+            await Recipe.findByIdAndUpdate(
+
+                req.params.id,
+
+                {
+
+                    name:req.body.name,
+
+                    ingredients:req.body.ingredients,
+
+                    steps:req.body.steps,
+
+                    type:req.body.type
+
+                }
+
+            );
+
+            res.json({
+
+                message:
+                "Recipe updated 🔥"
+
+            });
+
+        }
+
+        catch(error){
+
+            console.log(error);
+
+            res.status(500).json({
+
+                message:
+                "Update failed 😭"
+
+            });
+
+        }
+
+});

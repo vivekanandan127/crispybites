@@ -1,122 +1,163 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
     <meta charset="UTF-8">
-
     <title>Crispy Bites</title>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
-
     <div class ="head">
-
         <h1><i>Crispy</i></h1>
-
         <h2>bites</h2>
-
         <h3 class="upload-title">
             My Recipe
         </h3>
-
     </div>
-
-
-    <div class="container">
-
-
+    <div class="my-container">
         <div class="sidebar">
-
             <div id="homie">
-
                 <a href="index.html">
-
                     <img
                     id="home-icon"
                     src="home.svg">
-
                 </a>
-
             </div>
-
-
             <div id="add-recipe">
-
                 <a href="upload.html">
-
                     <img
                     id="plus-icon"
                     src="plus.svg">
-
                 </a>
-
             </div>
-
-
             <div id="my-recipe">
-
                 <a href="myrecipes.html">
-
                     <img
                     id="recipe-icon"
                     src="recipe.svg">
-
                 </a>
-
             </div>
-
         </div>
-
-        <div class ="profile-block">
-            <div class="profile-box">
-                <div id="profile-user-box">
-                    <img id="profile-user-photo">
-                    <div id="chef-name-box">
-                        <span id="profile-user-name"></span>
-                        <img id="chef-hat" src="chef.svg">
+        <div id="my-recipe-page">
+            <div class ="profile-block">
+                <div class="profile-box">
+                    <div id="profile-user-box">
+                        <img id="profile-user-photo">
+                        <div id="chef-name-box">
+                            <span id="profile-user-name"></span>
+                            <img id="chef-hat" src="chef.svg">
+                        </div>
+                    </div>
+                    <div class="recipe-count">
+                        <div id="nv-count-box">
+                            <h2 id="non-veg">
+                                Non Veg recipe
+                            </h2>
+                            <h3 id="n-count"></h3>
+                        </div>
+                        <div id="v-count-box">
+                            <h2 id="veg">
+                                Veg recipe
+                            </h2>
+                            <h3 id="v-count"></h3>
+                        </div>                    
                     </div>
                 </div>
-                <div class="recipe-count">
-                    <div id="nv-count-box">
-                        <h2 id="non-veg">
-                            Non Veg recipe
-                        </h2>
-                        <h3 id="n-count"></h3>
-                    </div>
-                    <div id="v-count-box">
-                        <h2 id="veg">
-                            Veg recipe
-                        </h2>
-                        <h3 id="v-count"></h3>
-                    </div>                    
+            </div>
+                <div class="switch-box">
+                    <button
+                        id="nonveg-btn"
+                        class="active-switch">
+                        Non Veg
+                    </button>
+                    <button
+                        id="veg-btn">
+                        Veg
+                    </button>
                 </div>
+            <div id="my-recipe-container">
             </div>
-            <div class="switch-box">
-                <button
-                    id="nonveg-btn"
-                    class="active-switch">
-                    Non Veg
-                </button>
-                <button
-                    id="veg-btn">
-                    Veg
-                </button>
-            </div>
-        </div>
-        </div>
-            <div class ="container-card" id="recipe-container">
         </div>
     </div>
+    <div id="popup">
+
+    <div id="popup-content">
+
+        <span
+        id="close-btn"
+        onclick="closePopup()">
+
+
+        </span>
+
+        <img id="popup-image">
+
+        <div id="pop-box">
+
+            <h2 id="popup-title"></h2>
+            
+
+            <p id="popup-chef"></p>
+
+            <h3 style="color:#ff6b00;">
+                Ingredients
+            </h3>
+
+            <p id="popup-ingredients"></p>
+
+            <h3 style="color:#ff6b00;">
+                Steps
+            </h3>
+
+            <p id="popup-steps"></p>
+
+        </div>
+
+    </div>
+    <div id="edit-popup">
+
+    <div id="edit-popup-content">
+
+        <input
+        id="edit-name"
+        placeholder="Recipe name">
+
+        <textarea
+        id="edit-ingredients"
+        placeholder="Ingredients">
+        </textarea>
+
+        <textarea
+        id="edit-steps"
+        placeholder="Steps">
+        </textarea>
+
+        <select id="edit-type">
+
+            <option>
+                Veg
+            </option>
+
+            <option>
+                Non Veg
+            </option>
+
+        </select>
+
+        <button
+        onclick="updateRecipe()">
+
+            Save Changes
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
     <script
-    type="module"
-    src="myrecipes.js">
-
+        type="module"
+        src="myrecipes.js">
     </script>
-
 </body>
-
 </html>
