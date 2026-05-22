@@ -427,3 +427,41 @@ window.editRecipe = function(
     .value = type;
 
 }
+const editPopup =
+document.getElementById(
+    "edit-popup"
+);
+
+window.addEventListener(
+
+    "click",
+
+    function(event){
+
+        if(event.target === editPopup){
+
+            editPopup.style.display =
+            "none";
+
+        }
+
+});
+const popup =
+document.getElementById(
+    "popup"
+);
+
+window.addEventListener(
+
+    "click",
+
+    function(event){
+
+        if(event.target === popup){
+
+            popup.style.display =
+            "none";
+
+        }
+
+});

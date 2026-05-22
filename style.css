@@ -940,14 +940,18 @@ button:hover{
 
     align-items:center;
 
-    gap:12px;
+    gap:20px;
 
     margin-top:35px;
 
     margin-left: 100px;
 
 }
+.action-box img{
 
+    pointer-events:auto;
+
+}
 
 .edit-icon,
 .delete-icon{
@@ -960,9 +964,74 @@ button:hover{
 
     cursor:pointer;
 
+    display:block;
+
     border-radius:0 !important;
 
 }
 .edit-icon{
     transform: scale(0.9);
+}
+#edit-popup{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.7);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+#edit-popup-content{
+
+    width:400px;
+
+    background:#1f1f1f;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+#edit-popup-content input,
+#edit-popup-content textarea,
+#edit-popup-content select{
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+}
+
+#edit-popup-content button{
+
+    height:45px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#E05D1F;
+
+    color:white;
+
+    cursor:pointer;
+
 }
