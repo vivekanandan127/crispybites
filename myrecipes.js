@@ -262,7 +262,24 @@ openPopup(
                         By ${recipe.chef}
                     </p>
                        <div class="action-box">
+                            <div
 
+class="like-box"
+
+onclick="event.stopPropagation();
+likeRecipe(
+'${recipe._id}'
+)">
+
+<img class="like-icon" src="like.svg">
+
+<span>
+${recipe.likes
+? recipe.likes.length
+: 0}
+</span>
+
+</div>
                             <img class="edit-icon"
                                 src="edit.svg"
 
@@ -283,24 +300,7 @@ openPopup(
                             )">
 
                         </div>
-<div
 
-class="like-box"
-
-onclick="event.stopPropagation();
-likeRecipe(
-'${recipe._id}'
-)">
-
-<img src="like.svg">
-
-<span>
-${recipe.likes
-? recipe.likes.length
-: 0}
-</span>
-
-</div>
                 </div>
 
             </div>
