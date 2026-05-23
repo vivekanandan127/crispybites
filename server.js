@@ -91,6 +91,7 @@ app.post(
     upload.single("image"), 
 
 async function(req, res) {
+    console.log(req.file);
 
     try {
         console.log(req.body);
