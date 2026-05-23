@@ -1050,6 +1050,5 @@ button:hover{
 
     margin-top:10px;
 
-    font-size:18px;
-
+    transform: scale(0.95);
 }
