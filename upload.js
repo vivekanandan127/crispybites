@@ -257,16 +257,13 @@ document.getElementById(
 
             }
 
-            catch(error){
+catch(error){
 
-                console.log(error.message);
+    console.log(error.message);
 
-                res.status(500).json({
+    alert(error.message);
 
-                    message:error.message
-
-                });
-            }
+}
 
     });
 
