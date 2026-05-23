@@ -224,7 +224,6 @@ document.getElementById(
                     imageInput.files[0]
                 );
 
-                console.log(req.file);
 
                 // DEBUG
                 console.log(
