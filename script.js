@@ -22,7 +22,7 @@ fetch("https://crispybites.onrender.com/recipes")
     data.forEach(recipes => {
 
         if(recipes.type === "Non Veg"){
-
+            console.log(recipe);
             nonVegContainer.innerHTML += `
 
             <div class="card"onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')">    
@@ -50,7 +50,7 @@ fetch("https://crispybites.onrender.com/recipes")
             `;
         }
         else if(recipes.type === "Veg"){
-
+            console.log(recipe);
             vegContainer.innerHTML += `
 
             <div class="vg-card" onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')">

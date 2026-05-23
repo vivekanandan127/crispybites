@@ -23,9 +23,13 @@ new mongoose.Schema({
 
     userPhoto:String,
 
-    likes:[
-        String
-    ]
+    likes:{
+
+        type:[String],
+
+        default:[]
+
+    }
 
 });
 
