@@ -13,6 +13,9 @@ const app = express();
 
 
 // MULTER CONFIG
+console.log(process.env.CLOUD_NAME);
+console.log(process.env.API_KEY);
+console.log(process.env.API_SECRET);
 
 const {
 CloudinaryStorage
@@ -27,21 +30,31 @@ require("./cloudinary");
 const storage =
 new CloudinaryStorage({
 
-    cloudinary,
+    cloudinary: cloudinary,
 
-    params:{
+    params: {
 
         folder:
-        "crispybites"
+        "crispybites",
+
+        allowed_formats: [
+            "jpg",
+            "png",
+            "jpeg",
+            "webp"
+        ]
 
     }
 
 });
 
+
 const upload =
-multer({ storage });
+multer({
 
+    storage: storage
 
+});
 // MIDDLEWARE
 app.use(cors());
 
