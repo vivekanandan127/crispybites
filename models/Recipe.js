@@ -1,6 +1,8 @@
-const mongoose = require("mongoose");
+const mongoose =
+require("mongoose");
 
-const recipeSchema = new mongoose.Schema({
+const recipeSchema =
+new mongoose.Schema({
 
     name:String,
 
@@ -12,9 +14,9 @@ const recipeSchema = new mongoose.Schema({
 
     steps:String,
 
-    eatingTime:String,
-
     chef:String,
+
+    eatingTime:String,
 
     userId:String,
 

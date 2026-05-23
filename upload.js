@@ -247,11 +247,12 @@ document.getElementById(
 
 
 
-                const data =
-                await response.json();
-                console.log(text);
+ const text =
+await response.text();
 
-                    alert(text);
+console.log(text);
+
+alert(text);
 
 
 
