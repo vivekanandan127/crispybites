@@ -13,26 +13,33 @@ const app = express();
 
 
 // MULTER CONFIG
-const storage = multer.diskStorage({
 
-    destination: function(req, file, cb) {
+const {
+CloudinaryStorage
+} = require(
+"multer-storage-cloudinary"
+);
 
-        cb(null, "uploads/");
+const cloudinary =
+require("./cloudinary");
 
-    },
 
-    filename: function(req, file, cb) {
+const storage =
+new CloudinaryStorage({
 
-        cb(
-            null,
-            Date.now() + "-" + file.originalname
-        );
+    cloudinary,
+
+    params:{
+
+        folder:
+        "crispybites"
 
     }
 
 });
 
-const upload = multer({ storage: storage });
+const upload =
+multer({ storage });
 
 
 // MIDDLEWARE
@@ -94,7 +101,7 @@ async function(req, res) {
 
             userPhoto:req.body.userPhoto,
 
-            image: req.file.filename
+            image:req.file.path
 
         });
 

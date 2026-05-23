@@ -246,7 +246,7 @@ openPopup(
 )">
 
                 <img
-                src="https://crispybites.onrender.com/uploads/${recipe.image}"
+                src="${recipe.image}"
 
                 onerror="this.src='fallback.svg'">
 
