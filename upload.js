@@ -256,13 +256,13 @@ document.getElementById(
 
             }
 
-catch(error){
+            catch(error){
 
-    console.log(error.message);
-
-    alert(error.message);
-
-}
+                console.log(error);
+                alert(
+                    "Upload failed 😭 🔥"
+                );
+            }
 
     });
 
