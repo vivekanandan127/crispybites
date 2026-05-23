@@ -318,7 +318,7 @@ window.openPopup = function(
         "popup-image"
     ).src =
 
-    `https://crispybites.onrender.com/uploads/${image}`;
+    `x${image}`;
 
 
     document.getElementById(

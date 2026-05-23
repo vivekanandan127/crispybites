@@ -26,7 +26,7 @@ fetch("https://crispybites.onrender.com/recipes")
             nonVegContainer.innerHTML += `
 
             <div class="card"onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')">    
-                <img src="https://crispybites.onrender.com/uploads/${recipes.image}" onerror="this.src='fallback.svg'">
+                <img src="${recipes.image}" onerror="this.src='fallback.svg'">
                 <div class="in-card">
                     <h4 class="N-name">
                         ${recipes.name}
@@ -43,7 +43,7 @@ fetch("https://crispybites.onrender.com/recipes")
             vegContainer.innerHTML += `
 
             <div class="vg-card" onclick="openPopup('${recipes.name}', '${recipes.image}', '${recipes.ingredients}', '${recipes.steps}','${recipes.chef}')">
-                <img src="https://crispybites.onrender.com/uploads/${recipes.image}" onerror="this.src='fallback.svg'">
+                <img src="${recipes.image}" onerror="this.src='fallback.svg'">
                 <div class="vg-in-card">
                     <h4 class="N-name">
                         ${recipes.name}
@@ -162,7 +162,7 @@ window.openPopup = function(
         .textContent = name;
 
 document.getElementById("popup-image").src =
-`https://crispybites.onrender.com/uploads/${image}`;
+`${image}`;
 const ingredientList =
 ingredients
 

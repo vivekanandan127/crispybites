@@ -259,12 +259,13 @@ document.getElementById(
 
             catch(error){
 
-                console.log(error);
+                console.log(error.message);
 
-                alert(
-                    "Upload failed 😭🔥"
-                );
+                res.status(500).json({
 
+                    message:error.message
+
+                });
             }
 
     });
