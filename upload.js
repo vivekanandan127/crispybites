@@ -249,8 +249,9 @@ document.getElementById(
 
                 const data =
                 await response.json();
+                console.log(text);
 
-                alert(data.message);
+                    alert(text);
 
 
 
