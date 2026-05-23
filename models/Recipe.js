@@ -1,6 +1,5 @@
 const mongoose =
 require("mongoose");
-
 const recipeSchema =
 new mongoose.Schema({
 
@@ -22,7 +21,11 @@ new mongoose.Schema({
 
     userName:String,
 
-    userPhoto:String
+    userPhoto:String,
+
+    likes:[
+        String
+    ]
 
 });
 

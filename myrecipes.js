@@ -200,6 +200,8 @@ myRecipes.filter(function(recipe){
         <h2 style="
             color:white;
             margin-top:50px;
+            margin-left:100px;
+            font-size:24px;
         ">
 
             No recipes uploaded yet 😭🔥

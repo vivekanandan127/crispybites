@@ -34,6 +34,17 @@ fetch("https://crispybites.onrender.com/recipes")
                     <p class="chef-name">
                         By ${recipes.chef}
                     </p>
+                    <div class="like-box">
+
+    ❤️
+
+    <span>
+        ${recipe.likes
+        ? recipe.likes.length
+        : 0}
+    </span>
+
+</div>
                 </div>
             </div>
             `;
@@ -51,6 +62,22 @@ fetch("https://crispybites.onrender.com/recipes")
                     <p class="chef-name">
                         By ${recipes.chef}
                     </p>
+                    <div class="like-box"
+
+onclick="event.stopPropagation();
+likeRecipe(
+'${recipe._id}'
+)">
+
+    ❤️
+
+    <span>
+        ${recipe.likes
+        ? recipe.likes.length
+        : 0}
+    </span>
+
+</div>
                 </div>
             </div>
             `;
@@ -326,3 +353,47 @@ logoutBtn.addEventListener(
     }
 
 });
+window.likeRecipe =
+async function(recipeId){
+
+    try{
+
+        const response =
+        await fetch(
+
+`https://crispybites.onrender.com/recipes/like/${recipeId}`,
+
+            {
+
+                method:"PUT",
+
+                headers:{
+                    "Content-Type":
+                    "application/json"
+                },
+
+                body:JSON.stringify({
+
+                    userId:
+                    currentUser.uid
+
+                })
+
+            }
+
+        );
+
+        const data =
+        await response.json();
+
+        location.reload();
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+}

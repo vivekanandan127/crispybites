@@ -249,3 +249,73 @@ app.put(
         }
 
 });
+app.put(
+
+"/recipes/like/:id",
+
+async function(req,res){
+
+    try{
+
+        const recipe =
+        await Recipe.findById(
+            req.params.id
+        );
+
+        const userId =
+        req.body.userId;
+
+        // ALREADY LIKED
+        if(
+            recipe.likes.includes(
+                userId
+            )
+        ){
+
+            recipe.likes =
+            recipe.likes.filter(
+
+                function(id){
+
+                    return id !== userId;
+
+                }
+
+            );
+
+        }
+
+        // NEW LIKE
+        else{
+
+            recipe.likes.push(
+                userId
+            );
+
+        }
+
+        await recipe.save();
+
+        res.json({
+
+            likes:
+            recipe.likes.length
+
+        });
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        res.status(500).json({
+
+            message:
+            "Like failed 😭🔥"
+
+        });
+
+    }
+
+});
