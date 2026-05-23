@@ -292,7 +292,7 @@ likeRecipe(
 '${recipe._id}'
 )">
 
-❤️
+<img src="heart.svg">
 
 <span>
 ${recipe.likes
